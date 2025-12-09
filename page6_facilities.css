@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #2d2dc4;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul .active a {
+    border-bottom: 3px solid white;
+    padding-bottom: 5px;
+}
+
+.profile-icon {
+    font-size: 24px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2d2dc4;
+}
+
+.popular-facilities {
+    background: #eef;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.facility-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.facility-icons span {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.facility-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.category {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h3 {
+    color: #2d2dc4;
+}
+
+@media (max-width: 600px) {
+    .facility-details {
+        grid-template-columns: 1fr;
+    }
+}

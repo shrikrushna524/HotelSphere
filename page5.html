@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelSphere</title>
+    <link rel="stylesheet" href="css_page5.css">
+    <script>
+        function displayMessage() {
+         
+          document.getElementById('message1').innerHTML = "4000 ruppess per day";
+          document.getElementById('message2').innerHTML = "3000 ruppess per day";
+          document.getElementById('message3').innerHTML = "2000 ruppess per day";
+          document.getElementById('message4').innerHTML = "3000 ruppess per day";
+          document.getElementById('message5').innerHTML = "4000 ruppess per day";
+          document.getElementById('message6').innerHTML = "3500 ruppess per day";
+          document.getElementById('message7').innerHTML = "3200 ruppess per day";
+        }
+      </script>
+</head>
+<body>
+    <header>
+        <h1>HotelSphere</h1>
+        <nav>
+            <ul>
+                <li><a href="page51.html">Overview</a></li>
+                <li><a href="#" class="active">Info & Prices</a></li>
+                <li><a href="page6_facilities.html">Facilities</a></li>
+                <li><a href="page7_houserules.html">House Rules</a></li>
+                <li><a href="page8_guestreviews.html">Guest Reviews</a></li>
+            </ul>
+        </nav>
+        <div class="user-icon">
+
+            
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile Panel</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .profile-container {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+            }
+            .profile-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .profile-panel {
+                display: none;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                background: white;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                padding: 10px;
+                width: 200px;
+                text-align: center;
+            }
+            .profile-panel.active {
+                display: block;
+            }
+            .profile-name {
+                font-weight: bold;
+                color: gray;
+                font-size: 14px;
+            }
+            .profile-email {
+                color: gray;
+                font-size: 14px;
+            }
+            .logout {
+                margin-top: 10px;
+                color: red;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="profile-container" onclick="toggleProfile()">
+            <div class="profile-icon">👤</div>
+            <div class="profile-panel" id="profilePanel">
+                <div class="profile-name">Shrikrushna Satpute</div>
+                <div class="profile-email">shri@gmail.com</div>
+                <div class="logout" onclick="logout()">Logout</div>
+            </div>
+        </div>
+    
+        <script>
+            function toggleProfile() {
+                document.getElementById("profilePanel").classList.toggle("active");
+            }
+    
+            function logout() {
+                
+                window.location.href = "log.html"; 
+               
+            }
+    
+            document.addEventListener("click", function(event) {
+                if (!event.target.closest(".profile-container")) {
+                    document.getElementById("profilePanel").classList.remove("active");
+                }
+            });
+        </script>
+    
+    </body>    
+
+        </div>
+    </header>
+
+    <section class="search-section">
+        <input type="text" placeholder="Check in - Check out Date">
+        <select>
+            <option>2 adult : 0 children : 1 Room</option>
+        </select>
+        <button>Search</button>
+    </section>
+
+    <section class="room-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Room Type</th>
+                    <th>Number of Guests</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="expand">▶</span> Dulux Room <br> 1 extra-large double bed</td>
+                    <td>👤👤 + 👶</td>
+                    <td><button onclick="displayMessage()">Show prices</button><p id="message1"></p></td>
+                </tr>
+                <tr>
+                    <td><span class="expand">▶</span> Dulux Room with view <br> 1 double bed</td>
+                    <td>👤👤👤 + 👶</td>
+                    <td><button onclick="displayMessage()">Show prices</button><p id="message2"></p></td>
+                </tr>
+                <tr>
+                    <td><span class="expand">▶</span> Suite <br> 1 large double bed</td>
+                    <td>👤👤👤</td>
+                    <td><button onclick="displayMessage()">Show prices</button><p id="message3"></p></td>
+                </tr>
+                <tr>
+                    <td><span class="expand">▶</span> Junior Suite <br> 1 double bed</td>
+                    <td>👤👤 + 👶</td>
+                    <td><button onclick="displayMessage()">Show prices</button><p id="message4"></p></td>
+                </tr>
+                <tr>
+                    <td><span class="expand">▶</span> Junior Suite with view <br> 1 extra-large double bed</td>
+                    <td>👤👤👤 + 👶</td>
+                    <td><button onclick="displayMessage()">Show prices</button><p id="message5"></p></td>
+                </tr>
+                <tr>
+                    <td><span class="expand">▶</span> Superior Suite <br> 1 large double bed</td>
+                    <td>👤👤 + 👶</td>
+                    <td><button onclick="displayMessage()">Show prices</button><p id="message6"></p></td>
+                </tr>
+                <tr>
+                    <td><span class="expand">▶</span> Suit with Terrace <br> 1 extra-large double bed</td>
+                    <td>👤👤 + 👶👶</td>
+                    <td><button onclick="displayMessage()">Show prices</button><p id="message7"></p></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

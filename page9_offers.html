@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotelSphere - Offers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #0e2c78;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .sidebar {
+      background-color: #f2e6ff;
+      width: 200px;
+      height: 100vh;
+      position: fixed;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a:hover {
+      background-color: #ddd;
+    }
+
+    .main-content {
+      margin-left: 200px;
+      padding: 20px;
+    }
+
+    .offers-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .offer-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .offer-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .offer-card h3 {
+      margin: 15px 0 10px;
+      color: #0e2c78;
+    }
+
+    .offer-card p {
+      margin: 5px 0;
+    }
+
+    .offer-card button {
+      background-color: #0e2c78;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .offer-card button:hover {
+      background-color: #1a49b3;
+    }
+
+    #offer-details {
+      margin-top: 30px;
+    }
+
+    /* Lightbox overlay */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    #lightbox:target {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HotelSphere</h1>
+    <button style="background-color: #5c8bff; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
+      <a href="log.html" style="color: white; text-decoration: none;">Sign in</a>
+    </button>
+  </header>
+
+  <div class="sidebar">
+    <a href="page2.html">Hotels</a>
+    <a href="page9_offers.html">Offers</a>
+    <a href="page10_support.html">Support</a>
+  </div>
+
+  <div class="main-content">
+    <h2>Exclusive Hotel Offers</h2>
+    <div class="offers-container">
+      <div class="offer-card">
+        <img src="D:\CPE Project\img1.png" alt="Luxury Stay" onclick="openLightbox(this.src)">
+        <h3>Luxury Stay - 25% Off</h3>
+        <p>Enjoy a luxury hotel experience at a special discounted rate.</p>
+        <button onclick="showOfferDetails('Luxury Stay - 25% Off', 'Enjoy a luxury hotel experience with spa, breakfast, and top-tier service at 25% off.')">Show Details</button>
+      </div>
+      <div class="offer-card">
+        <img src="D:\CPE Project\img2.png" alt="Weekend Special" onclick="openLightbox(this.src)">
+        <h3>Weekend Special</h3>
+        <p>Book for the weekend and get complimentary breakfast.</p>
+        <button onclick="showOfferDetails('Weekend Special', 'Book your weekend getaway now and enjoy a complimentary breakfast plus early check-in!')">Show Details</button>
+      </div>
+      <div class="offer-card">
+        <img src="D:\CPE Project\img3.png" alt="Family Pack" onclick="openLightbox(this.src)">
+        <h3>Family Pack</h3>
+        <p>Special deals on family rooms with added amenities for kids.</p>
+        <button onclick="showOfferDetails('Family Pack', 'Spacious family rooms with kids amenities, toys, and meal vouchers included!')">Show Details</button>
+      </div>
+      <div class="offer-card">
+        <img src="D:\CPE Project\img4.png" alt="Early Bird Offer" onclick="openLightbox(this.src)">
+        <h3>Early Bird Offer</h3>
+        <p>Book in advance and save up to 30% on your stay.</p>
+        <button onclick="showOfferDetails('Early Bird Offer', 'Book your hotel at least 30 days in advance and enjoy a 30% discount!')">Show Details</button>
+      </div>
+    </div>
+
+    <div id="offer-details"></div>
+  </div>
+
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+  </div>
+
+  <script>
+    function showOfferDetails(title, description) {
+      const detailsSection = document.getElementById("offer-details");
+      detailsSection.innerHTML = `
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+          <h3 style="color: #0e2c78;">${title}</h3>
+          <p>${description}</p>
+          <p><strong>To proceed with the booking, please <a href='log.html'>log in</a> or go to the <a href='page2.html'>Hotels</a> page.</strong></p>
+        </div>
+      `;
+      detailsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openLightbox(imgSrc) {
+      document.getElementById("lightbox-img").src = imgSrc;
+      document.getElementById("lightbox").style.display = "flex";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+</body>
+</html>

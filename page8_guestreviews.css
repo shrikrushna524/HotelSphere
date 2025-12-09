@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #2d2dc4;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul .active a {
+    border-bottom: 3px solid white;
+    padding-bottom: 5px;
+}
+
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eef;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.rating-box {
+    display: flex;
+    align-items: center;
+}
+
+.rating-score {
+    font-size: 24px;
+    font-weight: bold;
+    background: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.rating-text a {
+    font-size: 20px;
+    color: blue;
+    text-decoration: none;
+}
+
+.review-message {
+    color: green;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.review-button {
+    background: blue;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.review-categories {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #2d2dc4;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 10px;
+    border-radius: 5px;
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.read-reviews {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.read-button {
+    background: white;
+    color: blue;
+    border: 2px solid blue;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}

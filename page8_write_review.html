@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Review - HotelSphere</title>
+    <link rel="stylesheet" href="page8_guestreviews.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">HotelSphere</div>
+        <nav>
+            <ul>
+                <li><a href="page3.html">Overview</a></li>
+                <li><a href="page5.html">Info & Prices</a></li>
+                <li><a href="page6_facilities.html">Facilities</a></li>
+                <li><a href="page7_houserules.html">House Rules</a></li>
+                <li><a href="page8_guestreviews.html">Guest Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="review-form-section">
+            <h2>Write a Review</h2>
+            <form action="#" method="post" class="review-form">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="rating">Rating (1-10):</label>
+                <input type="number" id="rating" name="rating" min="1" max="10" required>
+
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">--Select--</option>
+                    <option value="staff">Staff</option>
+                    <option value="facilities">Facilities</option>
+                    <option value="cleanliness">Cleanliness</option>
+                    <option value="comfort">Comfort</option>
+                    <option value="value">Value for money</option>
+                    <option value="location">Location</option>
+                    <option value="wifi">Free WiFi</option>
+                </select>
+
+                <label for="message">Your Review:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="submit-review-button">Submit Review</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

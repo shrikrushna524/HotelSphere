@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotelSphere - Support</title>
+  <style>
+    /* [Same CSS as your version, unchanged for brevity] */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HotelSphere</h1>
+    <button style="background-color: #5c8bff; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
+      <a href="log.html" style="color: white; text-decoration: none;">Sign in</a>
+    </button>
+  </header>
+
+  <div class="sidebar">
+    <a href="page2.html">Hotels</a>
+    <a href="page9_offers.html">Offers</a>
+    <a href="page10_support.html">Support</a>
+  </div>
+
+  <div class="main-content">
+    <div class="support-section">
+      <h2>Need Help? Contact Us</h2>
+      <p>If you have any questions or issues, fill out the form below and our team will get back to you as soon as possible.</p>
+      
+      <!-- FORM begins here -->
+      <form id="contact-form">
+        <input type="text" name="user_name" placeholder="Your Name" required>
+        <input type="email" name="user_email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message or Concern" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <h3>How can I cancel my booking?</h3>
+        <p>You can cancel your booking from the 'My Bookings' section in your account dashboard.</p>
+
+        <h3>Can I reschedule my hotel stay?</h3>
+        <p>Yes, depending on the hotel's policy. Contact support or check the reschedule option in your bookings.</p>
+
+        <h3>Where can I view my confirmed bookings?</h3>
+        <p>Login and go to your account to view all your confirmed and past bookings.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EmailJS Integration -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual EmailJS Public Key
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+        .then(() => {
+          alert("Message sent successfully!");
+          this.reset();
+        })
+        .catch(error => {
+          alert("Failed to send message: " + JSON.stringify(error));
+        });
+    });
+  </script>
+</body>
+</html>

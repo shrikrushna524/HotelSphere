@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotelSphere - Map View</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #3A52FF;
+      color: white;
+      padding: 15px 20px;
+      font-size: 24px;
+    }
+
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
+
+    .info-box {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .info-box h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🗺️ HotelSphere - Map View
+  </header>
+
+  <div id="map"></div>
+
+  <script>
+    function initMap() {
+      const center = { lat: 21.2607, lng: 77.4977 }; // Center on Amravati
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: center,
+      });
+
+      const hotels = [
+        {
+          name: "Taj Hotel",
+          position: { lat: 21.2637, lng: 77.4975 },
+          info: "5-star hotel with pool and Wi-Fi. ₹4500/night"
+        },
+        {
+          name: "City Palace",
+          position: { lat: 21.259, lng: 77.5001 },
+          info: "Budget-friendly hotel with AC rooms. ₹1800/night"
+        },
+        {
+          name: "GreenLeaf Inn",
+          position: { lat: 21.261, lng: 77.493 },
+          info: "Eco-stay with free breakfast. ₹2200/night"
+        }
+      ];
+
+      hotels.forEach(hotel => {
+        const marker = new google.maps.Marker({
+          position: hotel.position,
+          map,
+          title: hotel.name
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+          content: `<div class="info-box"><h3>${hotel.name}</h3><p>${hotel.info}</p></div>`
+        });
+
+        marker.addListener("click", () => {
+          infoWindow.open(map, marker);
+        });
+      });
+    }
+  </script>
+
+
+<script>
+    function initMap() {
+      // Set the initial location (latitude and longitude)
+      // const initialLocation = { lat: 20.942958357171456, lng: 77.76774710264478 }; // Coordinates of India
+      const initialLocation = { lat: 20.942958357171456, lng: 77.76774710264478 };
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: initialLocation,
+      });
+
+      const marker = new google.maps.Marker({
+        position: initialLocation,
+        map: map,
+        title: "Click to select a location!",
+      });
+
+     
+      google.maps.event.addListener(map, "click", function (event) {
+        const clickedLocation = event.latLng;
+
+        marker.setPosition(clickedLocation);
+
+        console.log("Clicked coordinates: ", clickedLocation.lat(), clickedLocation.lng());
+
+        const infoWindow = new google.maps.InfoWindow({
+          content: `<p>Location: ${clickedLocation.lat()}, ${clickedLocation.lng()}</p>`,
+        });
+        infoWindow.open(map, marker);
+      });
+    }
+  </script>
+
+
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=map_key&callback=initMap">
+  </script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Sphere</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #3c4ebc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: #3c4ebc;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 60%;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #3c4ebc;
+            color: white;
+        }
+
+        .filter-bar div {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .hotel-list {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .hotel-card {
+            background-color: white;
+            display: flex;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .hotel-card img {
+            width: 150px;
+            height: auto;
+        }
+
+        .hotel-details {
+            padding: 10px;
+            flex: 1;
+        }
+
+        .hotel-details h3 {
+            margin: 0;
+        }
+
+        .rating {
+            margin-top: 5px;
+        }
+
+        .rating span {
+            color: gold;
+        }
+
+        .score {
+            text-align: right;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .score.superb {
+            color: purple;
+        }
+
+        .score.good {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hotel Sphere</h1>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search Here">
+        <button>🔍</button>
+    </div>
+
+    
+
+    <div class="filter-bar">
+        <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .filter-container {
+            background-color: #2244cc;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .filter-container div {
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            color: black;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 5px;
+            min-width: 120px;
+        }
+        .filter-container div:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content label {
+            display: block;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .dropdown-content label:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="filter-container">
+    <div>Filter By -</div>
+    <div>
+        Rating
+        <div class="dropdown-content">
+            <label><input type="checkbox" name="rating" value="1"> ★ Star 1</label>
+            <label><input type="checkbox" name="rating" value="2"> ★★ Star 2</label>
+            <label><input type="checkbox" name="rating" value="3"> ★★★ Star 3</label>
+            <label><input type="checkbox" name="rating" value="4"> ★★★★ Star 4</label>
+            <label><input type="checkbox" name="rating" value="5"> ★★★★★ Star 5</label>
+        </div>
+    </div>
+    <div>Facilities
+        <div class="dropdown-content">
+            <label><input type="checkbox" name="facilities" value="1"> Private Parking</label>
+            <label><input type="checkbox" name="facilities" value="2"> Internet Wi-Fi</label>
+            <label><input type="checkbox" name="facilities" value="3"> Restaurant</label>
+            <label><input type="checkbox" name="facilities" value="4"> Safety and Security</label>
+            <label><input type="checkbox" name="facilities" value="5"> Enjoyment Parks</label>
+        </div>
+    </div>
+    <div>Room Facilities
+        <div class="dropdown-content">
+            <label><input type="checkbox" name="room facilities" value="1"> Free Internet Wi-Fi</label>
+            <label><input type="checkbox" name="room facilities" value="2"> Cleaning</label>
+            <label><input type="checkbox" name="room facilities" value="3"> Daily Housekeeping</label>
+            <label><input type="checkbox" name="room facilities" value="4"> Digital Enjoyment tools</label>
+            <label><input type="checkbox" name="room facilities" value="5"> Family Rooms</label>
+        </div>
+    </div>
+    <div>Nearby
+        <div class="dropdown-content">
+            <label><input type="checkbox" name="nearby" value="1"> Rajkamal</label>
+            <label><input type="checkbox" name="nearby" value="2"> Raja Peth</label>
+            <label><input type="checkbox" name="nearby" value="3"> Railway station</label>
+            <label><input type="checkbox" name="nearby" value="4"> Bus stand</label>
+            <label><input type="checkbox" name="nearby" value="5"> Arjun Nagar</label>
+            <label><input type="checkbox" name="nearby" value="6"> Ravi Nagar</label>
+            <label><input type="checkbox" name="nearby" value="7"> Sai Nagar</label>
+            <label><input type="checkbox" name="nearby" value="8"> Camp road</label>
+        </div>
+    </div>
+</div>
+
+</body>
+    </div>
+
+    <div class="hotel-list">
+        <div class="hotel-card">
+            <img src='D:\CPE Project\hotel-3.jpg' alt="Hotel Grand Mehfil">
+            <div class="hotel-details">
+                <h3><a href="page51.html">Hotel Grand Mehfil</a></h3>
+                <p><a href="page51.html">Camp Road, Amravati, 444602, Amravati</a></p>
+                <p><a href="page51.html">Star 4 rating, parking facilities,restaurant, free internet WiFi , family rooms</a></p>
+                <div class="rating">
+                    <span>★★★★</span>
+                </div>
+            </div>
+            <div class="score good">8.8</div>
+        </div>
+        
+        <div class="hotel-card">
+            <img src='D:\CPE Project\hotel-4.jpg' alt="Hotel Excel Executive">
+            <div class="hotel-details">
+                <h3><a href="page61.html">Hotel Excel Executive</a></h3>
+                <p><a href="page61.html">Excel Executive Hotel is a suitable choice for travelers visiting Amravati.</a></p>
+                <p><a href="page61.html">Star 3 rating, parking facilities, restaurant, free internet WiFi , family rooms, resturants , swimming poools</a></p>
+                <div class="rating">
+                    <span>★★★</span>
+                </div>
+            </div>
+            <div class="score good">8.5</div>
+        </div>
+        
+        <div class="hotel-card">
+            <img src='D:\CPE Project\hotel-5.jpg' alt="Hotel Ramgiri International">
+            <div class="hotel-details">
+                <h3><a href="page71.html">Hotel Ramgiri International</a></h3>
+                <p><a href="page71.html">Near Amravati Railway Station, Bus Stand Road, Amravati-Ambanagari, Maharashtra - 444601, India                </a></p>
+                <p><a href="page71.html">Star 4 rating, parking facilities, reataurant, free internet WiFi , family rooms</a></p>
+                <div class="rating">
+                    <span>★★★★</span> 
+                </div>
+            </div>
+            <div class="score good">8.7</div>
+        </div>
+        
+        <div class="hotel-card">
+            <img src='D:\CPE Project\hotel-6.jpg' alt="Hotel Regency">
+            <div class="hotel-details">
+                <h3><a href="page81.html">Hotel Regency</a></h3>
+                <p><a href="page81.html">Nestled in the historic city of Amravati</a></p>
+                <p><a href="page81.html">Star 3 rating, parking facilities, free internet WiFi , family rooms, enjoyment parks,safety and security</a></p>
+                <div class="rating">
+                    <span>★★★</span>
+                </div>
+            </div>
+            <div class="score good">8.3</div>
+        </div>
+
+
+        <div class="hotel-card">
+            <img src='D:\CPE Project\hotel-1.jpg' alt="Taj Hotel">
+            <div class="hotel-details">
+                <h3><p><a href="page3.html">Taj Hotel</a></p>
+
+                </h3>
+                <p><p><a href="page3.html">0.6 km from city center</a></p><br><p><a href="page3.html">Located at Rajkamal Chowk, Amravati</a></p></p>
+                <div class="rating">
+                    <span>★★★★★</span>
+                </div>
+            </div>
+            <div class="score superb">9.5</div>
+        </div>
+
+        <div class="hotel-card">
+            <img src='D:\CPE Project\hotel-2.jpg' alt="Hotel Vienna">
+            <div class="hotel-details">
+                <h3><p><a href="page4.html">Hotel Vienna</a></p>
+                </h3>
+                <p><p><a href="page4.html">1.2 km from city center</a></p><br><p><a href="page4.html">Near Chatrapati Park, Gandhi Nagar, Amravati</a></p></p>
+                <div class="rating">
+                    <span>★★★★★</span>
+                </div>
+            </div>
+            <div class="score good">9.2</div>
+        </div>
+        
+    </div>
+
+
+
+    <script>
+        document.querySelector('.search-bar button').addEventListener('click', function () {
+            const searchValue = document.querySelector('.search-bar input').value.toLowerCase();
+            const hotelCards = document.querySelectorAll('.hotel-card');
+    
+            hotelCards.forEach(card => {
+                const textContent = card.innerText.toLowerCase();
+                if (textContent.includes(searchValue)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    
+        document.querySelector('.search-bar input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-bar button').click();
+            }
+        });
+    </script>
+
+
+
+
+
+<script>
+    function getSelectedFilters(name) {
+        return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+                    .map(input => input.parentElement.textContent.trim().toLowerCase());
+    }
+
+    function filterHotels() {
+        const searchValue = document.querySelector('.search-bar input').value.toLowerCase();
+
+        const selectedRatings = getSelectedFilters("rating");
+        const selectedFacilities = getSelectedFilters("facilities");
+        const selectedRoomFacilities = getSelectedFilters("roomFacilities");
+        const selectedNearby = getSelectedFilters("nearby");
+
+        const hotelCards = document.querySelectorAll('.hotel-card');
+
+        hotelCards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            let visible = true;
+
+            if (!text.includes(searchValue)) {
+                visible = false;
+            }
+
+            if (selectedRatings.length > 0 && !selectedRatings.some(r => text.includes(r))) {
+                visible = false;
+            }
+
+            if (selectedFacilities.length > 0 && !selectedFacilities.some(f => text.includes(f))) {
+                visible = false;
+            }
+
+            if (selectedRoomFacilities.length > 0 && !selectedRoomFacilities.some(rf => text.includes(rf))) {
+                visible = false;
+            }
+
+            if (selectedNearby.length > 0 && !selectedNearby.some(n => text.includes(n))) {
+                visible = false;
+            }
+
+            card.style.display = visible ? 'flex' : 'none';
+        });
+    }
+
+
+    document.querySelector('.search-bar button').addEventListener('click', filterHotels);
+    document.querySelector('.search-bar input').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') filterHotels();
+    });
+
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener('change', filterHotels);
+    });
+</script>
+
+
+
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const data = JSON.parse(localStorage.getItem('searchData'));
+      if (!data) return;
+  
+      const hotelCards = document.querySelectorAll('.hotel-card');
+      const nameQuery = data.hotelName.toLowerCase();
+  
+      hotelCards.forEach(card => {
+        const name = card.querySelector('h3')?.innerText.toLowerCase() || '';
+        if (!name.includes(nameQuery)) {
+          card.style.display = 'none';
+        } else {
+          card.style.display = 'flex';
+        }
+      });
+    });
+  </script\
+
+</body>
+
+</html>

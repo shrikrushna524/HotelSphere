@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HotelSphere</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #3A52FF;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+    }
+    header .nav {
+      display: flex;
+      gap: 20px;
+    }
+    header .nav a {
+      color: white;
+      text-decoration: none;
+    }
+    main {
+      padding: 20px;
+    }
+    .hotel-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .location, .rating {
+      font-size: 14px;
+      color: gray;
+    }
+    .rating {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .images img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .highlights, .description {
+      margin-top: 20px;
+    }
+    .highlights ul {
+      list-style: none;
+      padding: 0;
+    }
+    .highlights ul li {
+      margin-bottom: 10px;
+    }
+    .reserve-btn {
+      background-color: #3A52FF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .reserve-btn:hover {
+      background-color: #2A42CC;
+    }
+    .icon {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HotelSphere</h1>
+    <div class="nav">
+      <li class="active"></liclass><a href="#">Overview</a></li>
+      <a href="#"><p><a href="page5.html">Info & prices </a></p>
+    </a>
+      <a href="#"><p><a href="page6_facilities.html">Facilities</a></p>
+      <a href="#">       <p><a href="page7_houserules.html">House Rules</a></p>
+      <a href="#">       <p><a href="page8_guestreviews.html">Guest Reviews</a></p>
+    </div>
+    <div class="user-icon">
+
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile Panel</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .profile-container {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+            }
+            .profile-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .profile-panel {
+                display: none;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                background: white;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                padding: 10px;
+                width: 200px;
+                text-align: center;
+            }
+            .profile-panel.active {
+                display: block;
+            }
+            .profile-name {
+                font-weight: bold;
+                color: gray;
+            }
+            .profile-email {
+                color: gray;
+                font-size: 14px;
+            }
+            .logout {
+                margin-top: 10px;
+                color: red;
+                cursor: pointer;
+            }
+
+            .reserve-btn {
+      background-color: #3A52FF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+            .images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .images img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  
+  .images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .images img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fff;
+  }
+
+
+        </style>
+    </head>
+    <body>
+    
+        <div class="profile-container" onclick="toggleProfile()">
+            <div class="profile-icon">👤</div>
+            <div class="profile-panel" id="profilePanel">
+                <div class="profile-name">Shrikrushna Satpute</div>
+                <div class="profile-email">shri@1437</div>
+                <div class="logout" onclick="logout()">Logout</div>
+            </div>
+        </div>
+    
+        <script>
+            function toggleProfile() {
+                document.getElementById("profilePanel").classList.toggle("active");
+            }
+    
+            function logout() {
+                
+                window.location.href = "log.html"; 
+            }
+    
+            document.addEventListener("click", function(event) {
+                if (!event.target.closest(".profile-container")) {
+                    document.getElementById("profilePanel").classList.remove("active");
+                }
+            });
+        </script>
+    
+    </body>    
+
+    </div>
+  </header>
+  <main>
+    <div class="hotel-title">Hotel Excel Executive <span class="rating">★★★★★</span></div>
+    <div class="location">
+      📍 Excel Executive Hotel is a suitable choice for travelers visiting Amravati.  <br>
+      Amravati Railway Station is just 750 m whereas Amravati Bus Stand is 2 km from the property. The nearest airport is Dr. Babasaheb Ambedkar International Airport in Nagpur. Guests can visit various attractions like Joggers Park(3 km), ISKCON - Amravati(3 km), Shri Shiv Sai Temple(4 km), Ambadevi Mandir(4 km), Wadali Talav(5 km).
+    </div>
+    <button class="reserve-btn"><a href="page12_map.html?id=excel_exececative">View in Map</a></button>
+
+  
+    <div class="images">
+      <img src="D:/CPE Project/hotelee1.jpeg" alt="Hotel Interior" onclick="openLightbox(this.src)">
+      <img src="D:/CPE Project/hotelee2.avif" alt="Hotel Room" onclick="openLightbox(this.src)">
+      <img src="D:/CPE Project/hotelee3.png" alt="Hotel Exterior" onclick="openLightbox(this.src)">
+      <img src="D:/CPE Project/hotelee4.avif" alt="Hotel Pool" onclick="openLightbox(this.src)">
+    </div>
+   
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <img id="lightbox-img" src="" alt="Full View">
+    </div>
+    <div class="highlights">
+      <h3>Property highlights</h3>
+      <ul>
+        <li>📍 Excel Executive Hotel is a suitable choice for travelers visiting Amravati. </li>
+        <li>🛏 Want a great night's sleep? This hotel was highly rated for its very comfy beds.</li>
+        <li>🚗 Private parking available</li>
+      </ul>
+      <h3>Loyal customers</h3>
+      <p>✔ There are more repeat guests here than most other properties.</p>
+    </div>
+    <div class="description">
+      <h3>Get the celebrity treatment with world-class service at Hotel Sacher Wien</h3>
+      <p>
+        Room Amenities: The capacious and classic rooms are well appointed and tastefully decorated with comfortable beds and good quality linens. The rooms and suites of the hotel are facilitated with basic amenities like television, room service. The attached bathrooms are provided with requisite toiletries.
+
+        Hotel Facilities: The hotel facilitates services such as front desk, Wifi, parking, travel desk, room service, laundry and doctor on call. For the convenience of guests, payment is also accepted through cards.
+        
+        one of the best hotels in Amravati is seamlessly connected to both - the Amravati Railway Station as well as the Amravati Bus Station. It is located just 5 minutes from the Amravati Railway Station and 7 minutes from Amravati Bus Station respectively, whilst providing convenient access within 10 minutes to the complete market area of Amravati City as well. Hotel Excel Executive offers guests an assortment of luxury rooms and suites to enjoy their stay in. The various popular shopping areas, cinema halls and entertainment hubs in Amravati are conveniently located from our luxury hotel.<br>
+        The Rote Bar and Grüne Bar restaurants serve international and traditional Viennese cuisine. 
+        The Blaue Bar is a popular meeting place. Classic Viennese coffee and the original Sacher-Torte 
+        are available at Café Sacher. <br>
+        Coffee and tea facilities are provided in every room. All non-alcoholic beverages from the minibar are free of charge.
+      </p>
+    </div>
+    <button class="reserve-btn">Reserve</button>
+  </main>
+
+
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = src;
+      lightbox.style.display = "flex";
+    }
+  
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+  
+
+
+</body>
+</html>

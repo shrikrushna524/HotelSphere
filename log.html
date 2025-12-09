@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 300px; margin: 50px auto; padding: 40px; border: 1px solid #ccc; border-radius: 5px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background-color: rgb(40, 188, 52); color: rgb(233, 228, 227); padding: 5px; width: 100%; border: 30px; font-size: large;font-family: large; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign in</h2>
+        <input type="text" id="username" placeholder="User name" required>
+        <input type="email" id="email" placeholder="e-mail id" required>
+        <input type="passcode" id="passcode" placeholder="Passcode" required>
+        <a href="Forget_password.html">forget password?</a>
+        <input type="text" id="mobile" placeholder="Mobile no." required>
+        <button onclick="loginUser()">
+            <p><b>Submit</b></p>
+        </button>
+    </div>
+    
+    <script src="script.js"></script>
+    
+    
+<script>
+  function loginUser() {
+    const validUser = {
+      username: "shrikrushna",
+      email: "shrikrushna07@gmail.com",
+      passcode: "March@1437"
+    };
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const passcode = document.getElementById("passcode").value.trim();
+
+    if (!username || !email || !passcode) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    if (
+      username === validUser.username &&
+      email === validUser.email &&
+      passcode === validUser.passcode
+    ) {
+      alert("Login successful!");
+      window.location.href = "page2.html";
+    } else {
+      alert("Incorrect username, email, or passcode.");
+      window.location.href = "log.html";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+Hotel Searching Management
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HotelSphere</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      background-color: #0e2c78;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .sidebar {
+      background-color: #f2e6ff;
+      width: 200px;
+      height: 100vh;
+      position: fixed;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a:hover {
+      background-color: #ddd;
+    }
+
+    .main-content {
+      margin-left: 200px;
+      padding: 20px;
+    }
+
+    .search-section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .search-section input,
+    .search-section button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    .search-section button {
+      background-color: #8098cd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-section button:hover {
+      background-color: #0652f7;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HotelSphere</h1>
+    <button style="background-color: #5c8bff; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
+      <p><a href="log.html">Sign in</a></p>
+    </button>
+  </header>
+
+  <div class="sidebar">
+    <p><a href="page2.html">Hotels</a></p>
+   <a href="page9_offers.html">Offers</a>
+   <a href="page10_support.html">Support</a>
+   <a href="page13_policy.html">Terms and Policies</a>
+  </div>
+
+  <div class="main-content">
+    <div class="search-section">
+      <h2>HotelSphere</h2>
+      
+      <p>Experience best hotel Searching with us !!! </p>
+      <p>Make Your Stay Valuable and a perfect One</p>
+      <div>
+
+      </div>
+      <div>
+        <input type="date" id="startDate"> to <input type="date" id="endDate">
+      </div>
+
+      <div>
+        
+      </div>
+     
+      <br>
+      <button onclick="performSearch()">
+        <p><a href="page2.html"><p style="color: rgb(255, 255, 255);">Search Hotels</p></a></p>
+      </button>
+    </div>
+  </div>
+
+  <script src="hotel1_1.js"></script>
+
+
+
+
+  <script>
+    function performSearch() {
+      const hotelName = document.getElementById('hotelName').value;
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+      const roomInfo = document.getElementById('roomInfo').value;
+ 
+      const searchData = {
+        hotelName,
+        startDate,
+        endDate,
+        roomInfo
+      };
+      localStorage.setItem('searchData', JSON.stringify(searchData));
+  
+      window.location.href = 'page2.html';
+    }
+  </script>
+  
+
+
+
+
+</body>
+</html>

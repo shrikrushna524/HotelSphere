@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotelSphere - Map View</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #3A52FF;
+      color: white;
+      padding: 15px 20px;
+      font-size: 24px;
+    }
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
+    .info-box {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .info-box h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  🗺️ HotelSphere - Map View
+</header>
+
+<div id="map"></div>
+
+<script>
+  
+  const hotels = {
+    taj: {
+      name: "Taj Hotel",
+      position: { lat: 21.2637, lng: 77.4975 },
+      info: "5-star hotel with pool and Wi-Fi. ₹4500/night"
+    },
+    vienna: {
+      name: "City Palace",
+      position: { lat: 21.259, lng: 77.5001 },
+      info: "Budget-friendly hotel with AC rooms. ₹1800/night"
+    },
+    grand_mefiel: {
+      name: "GreenLeaf Inn",
+      position: { lat: 20.935447524082686, lng: 77.77102740126757},
+      info: "Eco-stay with free breakfast. ₹2200/night"
+    },
+    excel_exececative: {
+      name: "hotel excel",
+      position: { lat: 20.934192469725797, lng: 77.75769386864717 },
+      info: "Eco-stay with free breakfast. ₹2200/night"
+    },
+    ramgiri_international: {
+      name: "hotel ramgiri Inn",
+      position: { lat: 20.92937473229829, lng: 77.75950585145267 },
+      info: "Eco-stay with free breakfast. ₹2200/night"
+    },
+    regency: {
+      name: "hotel ramgiri",
+      position: { lat: 20.929785741436046, lng: 77.7602033533037 },
+      info: "Eco-stay with free breakfast. ₹2200/night"
+    }
+  };
+
+  function getHotelId() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
+  }
+
+  function initMap() {
+    const hotelId = getHotelId();
+
+    if (!hotelId || !hotels[hotelId]) {
+      alert("Invalid hotel selected!");
+      return;
+    }
+
+    const hotel = hotels[hotelId];
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 15,
+      center: hotel.position,
+    });
+
+    const marker = new google.maps.Marker({
+      position: hotel.position,
+      map: map,
+      title: hotel.name
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<div class="info-box"><h3>${hotel.name}</h3><p>${hotel.info}</p></div>`
+    });
+
+    marker.addListener("click", () => {
+      infoWindow.open(map, marker);
+    });
+
+    
+    infoWindow.open(map, marker);
+  }
+</script>
+
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao&callback=initMap">
+</script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Write a Review - HotelSphere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #003580;
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #003580;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit-review-button {
+      background-color: #0071c2;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-review-button:hover {
+      background-color: #005b9f;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">HotelSphere</div>
+    <nav>
+      <ul>
+        <li><a href="page3.html">Overview</a></li>
+        <li><a href="page5.html">Info & Prices</a></li>
+        <li><a href="page6_facilities.html">Facilities</a></li>
+        <li><a href="page7_houserules.html">House Rules</a></li>
+        <li><a href="page8_guestreviews.html">Guest Reviews</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Write a Review</h2>
+    <form action="submitReview" method="post" class="review-form">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="rating">Rating (1-10):</label>
+      <input type="number" id="rating" name="rating" min="1" max="10" required>
+
+      <label for="category">Category:</label>
+      <select id="category" name="category" required>
+        <option value="">-- Select a Category --</option>
+        <option value="Staff">Staff</option>
+        <option value="Facilities">Facilities</option>
+        <option value="Cleanliness">Cleanliness</option>
+        <option value="Comfort">Comfort</option>
+        <option value="Value for money">Value for Money</option>
+        <option value="Location">Location</option>
+        <option value="Free WiFi">Free WiFi</option>
+      </select>
+
+      <label for="message">Your Review:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Share your experience..." required></textarea>
+
+      <button type="submit" class="submit-review-button">Submit Review</button>
+    </form>
+  </main>
+
+</body>
+</html>
